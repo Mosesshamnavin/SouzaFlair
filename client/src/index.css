@@ -1,21 +1,274 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@100..900&family=Prata&display=swap");
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #0a0a0a;
+  --color-secondary: #c9a96e;
+  --color-accent: #e8d5b5;
+  --color-surface: #f5f0eb;
+  --color-surface-alt: #1a1a1a;
+  --color-text: #2d2d2d;
+  --color-text-muted: #8a8578;
+  --color-white: #fdfbf7;
+
+  --font-serif: "Playfair Display", "Prata", serif;
+  --font-sans: "Inter", "Outfit", sans-serif;
+}
+
+/* Base Styles & Typography */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-white);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Inter", "Outfit", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, .font-serif-custom {
+  font-family: "Playfair Display", "Prata", serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c9a96e;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e8d5b5;
+}
+
+/* Active Navigation */
 a.active hr {
   display: block;
-}
-* {
-  font-family: "Outfit";
-}
-.prata-regular {
-  font-family: "Prata", serif;
-  font-weight: 400;
-  font-style: normal;
+  background-color: var(--color-secondary);
+  height: 2px;
+  border: none;
 }
 
 @media (max-width: 640px) {
   a.active {
-    background-color: black;
-    color: white;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+}
+
+/* Lenis Smooth Scroll Support */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Scroll Reveal Infrastructure */
+.reveal {
+  opacity: 0;
+  transition: all 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  will-change: transform, opacity;
+}
+
+.reveal-up {
+  transform: translateY(50px);
+}
+
+.reveal-down {
+  transform: translateY(-50px);
+}
+
+.reveal-left {
+  transform: translateX(-50px);
+}
+
+.reveal-right {
+  transform: translateX(50px);
+}
+
+.reveal-scale {
+  transform: scale(0.92);
+}
+
+.reveal-rotate {
+  transform: rotate(5deg) scale(0.95);
+}
+
+.revealed {
+  opacity: 1 !important;
+  transform: translate(0) scale(1) rotate(0) !important;
+}
+
+/* Delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; }
+.delay-700 { transition-delay: 700ms; }
+.delay-800 { transition-delay: 800ms; }
+
+/* Custom Animations */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-btn {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #0a0a0a 0%, #1a1a1a 40%, #c9a96e 50%, #1a1a1a 60%, #0a0a0a 100%);
+  background-size: 200% auto;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.shimmer-btn:hover {
+  background-position: -200% 0;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.shimmer-btn-gold {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #c9a96e 0%, #e8d5b5 40%, #fff 50%, #e8d5b5 60%, #c9a96e 100%);
+  background-size: 200% auto;
+  color: #0a0a0a;
+  transition: all 0.3s ease;
+}
+
+.shimmer-btn-gold:hover {
+  background-position: -200% 0;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glass-panel-dark {
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(201, 169, 110, 0.15);
+}
+
+/* 3D Card Hover Effects */
+.perspective-container {
+  perspective: 1000px;
+}
+
+.tilt-card {
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
+  transform-style: preserve-3d;
+}
+
+.tilt-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.tilt-card-inner {
+  transform: translateZ(30px);
+}
+
+/* Parallax Background Utility */
+.parallax-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.parallax-bg {
+  transform: translateY(calc(var(--scroll-y, 0) * 0.15px));
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+/* Horizontal Scroll styling */
+.horizontal-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.horizontal-scroll-item {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+}
+
+/* Shiny hover effect for product card images */
+.shine-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+  transform: skewX(-25deg);
+  transition: none;
+}
+
+.shine-hover:hover::after {
+  animation: shine 0.75s;
+}
+
+@keyframes shine {
+  100% {
+    left: 125%;
   }
 }
