@@ -8,6 +8,7 @@ const ProductItem = ({ id, image, name, price, index = 0 }) => {
   return (
     <Link
       to={`/product/${id}`}
+      data-reveal
       className="group block text-primary cursor-pointer transition-all duration-500 reveal reveal-up"
       style={{ transitionDelay: `${(index % 5) * 100}ms` }}
     >

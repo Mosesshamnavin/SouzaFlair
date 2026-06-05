@@ -81,6 +81,17 @@ const Navbar = () => {
           <hr className="w-2/3 border-none h-[1.5px] bg-secondary hidden" />
         </NavLink>
         <NavLink
+          to="/wardrobe"
+          className={({ isActive }) =>
+            `flex flex-col items-center gap-1.5 transition-colors duration-300 ${
+              isActive ? "text-secondary font-semibold" : "text-white/80 hover:text-white"
+            }`
+          }
+        >
+          <p className="hover-underline">WARDROBE</p>
+          <hr className="w-2/3 border-none h-[1.5px] bg-secondary hidden" />
+        </NavLink>
+        <NavLink
           to="/about"
           className={({ isActive }) =>
             `flex flex-col items-center gap-1.5 transition-colors duration-300 ${
@@ -260,6 +271,17 @@ const Navbar = () => {
               to="/collection"
             >
               COLLECTION
+            </NavLink>
+            <NavLink
+              onClick={() => setVisible(false)}
+              className={({ isActive }) =>
+                `hover:text-secondary transition-colors duration-300 py-2 border-b border-white/5 ${
+                  isActive ? "text-secondary font-bold" : ""
+                }`
+              }
+              to="/wardrobe"
+            >
+              WARDROBE
             </NavLink>
             <NavLink
               onClick={() => setVisible(false)}

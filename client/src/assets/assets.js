@@ -14,7 +14,7 @@ const womenPics = [
 
 const menPics = [
   "https://images.unsplash.com/photo-1488161628813-04466f872be2?auto=format&fit=crop&w=800&q=80", // 0
-  "https://images.unsplash.com/photo-1505633569883-020c1f8153a4?auto=format&fit=crop&w=800&q=80", // 1
+  "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=800&q=80", // 1
   "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=800&q=80", // 2
   "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80", // 3
   "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80", // 4

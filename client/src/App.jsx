@@ -9,6 +9,7 @@ import Collection from "./pages/Collection";
 import PlaceOrder from "./pages/PlaceOrder";
 import Order from "./pages/Order";
 import Product from "./pages/Product";
+import Wardrobe from "./pages/Wardrobe";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SearchBar from "./components/SearchBar";
@@ -88,6 +89,7 @@ const App = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/collection" element={<Collection />} />
+          <Route path="/wardrobe" element={<Wardrobe />} />
           <Route path="/login" element={<Login />} />
           <Route path="/order" element={<Order />} />
           <Route path="/placeOrder" element={<PlaceOrder />} />

@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import ProductItem from "../components/ProductItem";
+import Title from "../components/Title";
 import useScrollReveal from "../hooks/useScrollReveal";
 
 const Product = () => {
